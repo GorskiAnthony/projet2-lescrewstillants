@@ -11,11 +11,13 @@ API : https://www.themealdb.com/api.php
 **MVP**
 
 - Recherche de repas
+- Afficher tous les repas
+- Afficher les détails d'un repas
+- Affichage de la semaine
+- Afficher un repas aléatoire
 - Ajout de repas à la semaine
 - Ajout en favoris
 - Suppression de repas de la semaine
-- Affichage de la semaine
-- Afficher un repas aléatoire
 
 💡plus d'information [ici](./_docs/conception.md)
 
