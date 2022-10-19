@@ -1,7 +1,23 @@
 ## Concept
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+### Let's eat
+
+`Let's eat` permet de rechercher un repas et ainsi préparer sa semaine de repas.
+
+API : https://www.themealdb.com/api.php
+
+#### Fonctionnalités
+
+**MVP**
+
+- Recherche de repas
+- Ajout de repas à la semaine
+- Ajout en favoris
+- Suppression de repas de la semaine
+- Affichage de la semaine
+- Afficher un repas aléatoire
+
+💡plus d'information [ici](./_docs/conception.md)
 
 ## Setup & Use
 
