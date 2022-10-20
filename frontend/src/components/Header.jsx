@@ -8,6 +8,7 @@ import {
   CalendarIcon,
   ArrowPathIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 import logo from "@assets/logo.png";
 
@@ -57,11 +58,13 @@ export default function Header() {
             <div className="relative flex h-16 justify-between">
               <div className="relative z-10 flex px-2 lg:px-0">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-16 w-auto"
-                    src={logo}
-                    alt="Logo de Let's do eat"
-                  />
+                  <Link to="/">
+                    <img
+                      className="block h-16 w-auto"
+                      src={logo}
+                      alt="Logo de Let's do eat"
+                    />
+                  </Link>
                 </div>
               </div>
               <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">

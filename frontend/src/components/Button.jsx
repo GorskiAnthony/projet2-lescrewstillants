@@ -3,6 +3,7 @@ import {
   CalendarIcon,
   InformationCircleIcon,
 } from "@heroicons/react/20/solid";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 function Button({ name, href }) {
@@ -13,13 +14,13 @@ function Button({ name, href }) {
   };
 
   return (
-    <a
-      href={href}
+    <Link
+      to={`/${href}`}
       type="button"
       className="inline-flex items-center rounded-md border border-transparent bg-amber-600 px-4 py-2 text-sm font-medium text-white shadow-lg hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 shadow-lg"
     >
       {icons[name]}
-    </a>
+    </Link>
   );
 }
 

@@ -6,9 +6,11 @@ import meals from "@services/meals.js";
 function Home() {
   return (
     <Layout>
-      {meals.map((meal) => (
-        <Card key={meal.idMeal} meal={meal} />
-      ))}
+      <div className="grid grid-cols-1 gap-1 md:gap-3 md:grid-cols-3 my-16">
+        {meals.map((meal) => (
+          <Card key={meal.idMeal} meal={meal} />
+        ))}
+      </div>
     </Layout>
   );
 }

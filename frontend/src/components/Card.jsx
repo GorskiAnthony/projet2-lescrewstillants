@@ -3,9 +3,8 @@ import Button from "@components/Button";
 import PropTypes from "prop-types";
 
 function Card({ meal }) {
-  const tags = meal.strTags.split(",");
   return (
-    <div className="w-full overflow-hidden rounded-md border shadow-sm">
+    <div className="w-60 overflow-hidden rounded-md border shadow-sm">
       <div className="group relative flex h-64 items-end justify-end overflow-hidden">
         <img
           src={meal.strMealThumb}
@@ -16,14 +15,12 @@ function Card({ meal }) {
       </div>
       <div className="px-4 py-6">
         <div>
-          {tags.map((tag) => (
-            <Tag key={tag} name={tag} />
-          ))}
+          <Tag key={meal.idMeal} name={meal.strMeal} />
         </div>
         <div className="mt-8 flex justify-between ">
           <Button name="HeartIcon" href="#" />
           <Button name="CalendarIcon" href="#" />
-          <Button name="InformationCircleIcon" href="#" />
+          <Button name="InformationCircleIcon" href={meal.idMeal} />
         </div>
       </div>
     </div>
