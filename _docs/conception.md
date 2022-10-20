@@ -7,8 +7,8 @@ Je commence par faire le design sur papier, puis je le passe sur [balsamiq](http
 ![maquette](./login.png)
 ![maquette](./wireframe.png)
 
-![dev](./dev/desktop.png)
-![dev](./dev/mobile.png)
+![dev](./wip/desktop.png)
+![dev](./wip/mobile.png)
 
 ## Cahier des charges
 
