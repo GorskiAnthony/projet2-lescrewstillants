@@ -2,7 +2,7 @@
 
 ### Let's eat
 
-`Let's eat` permet de rechercher un repas et ainsi préparer sa semaine de repas.
+`Let's do eat` permet de rechercher un repas et ainsi préparer sa semaine de repas.
 
 API : https://www.themealdb.com/api.php
 
