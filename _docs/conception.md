@@ -7,6 +7,9 @@ Je commence par faire le design sur papier, puis je le passe sur [balsamiq](http
 ![maquette](./login.png)
 ![maquette](./wireframe.png)
 
+![dev](./wip/desktop.png)
+![dev](./wip/mobile.png)
+
 ## Cahier des charges
 
 Je dois forcément faire un cahier des charges pour mon projet.
