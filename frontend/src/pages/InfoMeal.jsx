@@ -81,7 +81,7 @@ function InfoMeal() {
                 </div>
                 <ul>
                   {Object.keys(meal).map((key) => {
-                    if (key.includes("Measure") && meal[key].trim()) {
+                    if (key.includes("Measure") && meal[key]) {
                       return (
                         <li key={key} className="list-disc">
                           {meal[key]}

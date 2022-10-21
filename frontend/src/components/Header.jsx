@@ -1,4 +1,5 @@
-import { Fragment } from "react";
+import PropTypes from "prop-types";
+import { Fragment, useContext } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import {
@@ -9,6 +10,7 @@ import {
   ArrowPathIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import { MealsContext } from "@contexts/MealsContext";
 
 import logo from "@assets/logo.png";
 
@@ -49,7 +51,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Header() {
+function Header() {
+  const { handleSubmit } = useContext(MealsContext);
   return (
     <Disclosure as="header" className="bg-white shadow-sm my-2">
       {({ open }) => (
@@ -69,24 +72,26 @@ export default function Header() {
               </div>
               <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
                 <div className="w-full sm:max-w-xs">
-                  <label htmlFor="search" className="sr-only">
-                    Search
-                  </label>
-                  <div className="relative">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <MagnifyingGlassIcon
-                        className="h-5 w-5 text-gray-400"
-                        aria-hidden="true"
+                  <form onSubmit={(e) => handleSubmit(e)}>
+                    <label htmlFor="search" className="sr-only">
+                      Search
+                    </label>
+                    <div className="relative">
+                      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <MagnifyingGlassIcon
+                          className="h-5 w-5 text-gray-400"
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <input
+                        id="search"
+                        name="search"
+                        className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:border-amber-500 focus:text-gray-900 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-amber-500 sm:text-sm"
+                        placeholder="Search"
+                        type="search"
                       />
                     </div>
-                    <input
-                      id="search"
-                      name="search"
-                      className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:border-amber-500 focus:text-gray-900 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-amber-500 sm:text-sm"
-                      placeholder="Search"
-                      type="search"
-                    />
-                  </div>
+                  </form>
                 </div>
               </div>
               <div className="relative z-10 flex items-center lg:hidden">
@@ -221,3 +226,9 @@ export default function Header() {
     </Disclosure>
   );
 }
+
+Headers.propTypes = {
+  setSearch: PropTypes.func.isRequired,
+};
+
+export default Header;
