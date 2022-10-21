@@ -9,12 +9,9 @@ function MealsContextProvider({ children }) {
   const [meals, setMeals] = useState([]);
   const api = useApi();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSearch(e.target.childNodes[1].childNodes[1].value);
+  const handleSubmit = (categorie) => {
+    setSearch(categorie);
   };
-
-  console.warn("search", search);
 
   useEffect(() => {
     api
@@ -29,6 +26,7 @@ function MealsContextProvider({ children }) {
 
   const mealsProviderValue = useMemo(() => {
     return {
+      search,
       meals,
       handleSubmit,
     };

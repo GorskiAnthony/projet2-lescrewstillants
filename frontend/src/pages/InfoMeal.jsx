@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Layout from "@pages/Layout";
 import { useParams } from "react-router-dom";
 import useApi from "@services/useAxios";
 
@@ -10,8 +9,10 @@ function InfoMeal() {
   const api = useApi();
 
   useEffect(() => {
+    const controller = new AbortController();
+    const { signal } = controller;
     api
-      .get(`/lookup.php?i=${id}`)
+      .get(`/lookup.php?i=${id}`, { signal })
       .then((res) => {
         setMeal(res.data.meals[0]);
       })
@@ -23,15 +24,13 @@ function InfoMeal() {
       });
 
     return () => {
-      console.warn("unmount");
+      controller.abort();
     };
   }, [id]);
 
-  console.warn(meal);
-
   return (
     (isLoading && <div>Loading...</div>) || (
-      <Layout>
+      <div>
         <h1 className="text-center text-3xl">{meal.strMeal}</h1>
         <section className="flex flex-col lg:flex-row items-center justify-center">
           <div className="group relative p-6">
@@ -104,7 +103,7 @@ function InfoMeal() {
             </section>
           </section>
         </section>
-      </Layout>
+      </div>
     )
   );
 }
