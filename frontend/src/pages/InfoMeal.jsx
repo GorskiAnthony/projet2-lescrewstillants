@@ -51,45 +51,43 @@ function InfoMeal() {
         <section className="flex lg:flex-row items-center justify-center my-5">
           <section className="flex">
             <section className="flex flex-1 justify-around">
-              <div>
-                <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
-                  <h2 className="sm:text-2xl text-xl font-medium title-font mb-2 text-gray-900">
-                    Ingredient
-                  </h2>
-                  <div className="h-1 w-20 bg-amber-500 rounded" />
-                </div>
-                <ul>
-                  {Object.keys(meal).map((key) => {
-                    if (key.includes("Ingredient") && meal[key]) {
-                      return (
-                        <li key={key} className="list-disc">
-                          {meal[key]}
-                        </li>
-                      );
-                    }
-                    return null;
-                  })}
-                </ul>
-              </div>
-              <div>
-                <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
-                  <h2 className="sm:text-2xl text-xl font-medium title-font mb-2 text-gray-900">
-                    Mesure
-                  </h2>
-                  <div className="h-1 w-20 bg-amber-500 rounded" />
-                </div>
-                <ul>
-                  {Object.keys(meal).map((key) => {
-                    if (key.includes("Measure") && meal[key]) {
-                      return (
-                        <li key={key} className="list-disc">
-                          {meal[key]}
-                        </li>
-                      );
-                    }
-                    return null;
-                  })}
-                </ul>
+              <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                  <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                      <th scope="col" className="py-3 px-6">
+                        Ingredient
+                      </th>
+                      <th scope="col" className="py-3 px-6">
+                        Mesure
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Object.keys(meal)
+                      .filter((key) => key.includes("strIngredient"))
+                      .map((key, index) => {
+                        return (
+                          meal[key] && (
+                            <tr
+                              key={key}
+                              className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
+                            >
+                              <th
+                                scope="row"
+                                className="py-3 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                              >
+                                {meal[key]}
+                              </th>
+                              <th className="py-3 px-6">
+                                {meal[`strMeasure${index + 1}`]}
+                              </th>
+                            </tr>
+                          )
+                        );
+                      })}
+                  </tbody>
+                </table>
               </div>
             </section>
             <section className="flex-1">
@@ -99,7 +97,7 @@ function InfoMeal() {
                 </h2>
                 <div className="h-1 w-20 bg-amber-500 rounded" />
               </div>
-              <p>{meal.strInstructions}</p>
+              <p className="pt-2">{meal.strInstructions}</p>
             </section>
           </section>
         </section>
