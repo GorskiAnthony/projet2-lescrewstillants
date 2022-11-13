@@ -25,8 +25,8 @@ const navigation = [
   {
     id: 1,
     name: <HeartIcon className="h-6 w-6" aria-hidden="true" />,
-    href: "#",
-    current: true,
+    href: "/favorites",
+    current: false,
   },
   {
     id: 2,
@@ -152,9 +152,9 @@ function Header() {
               aria-label="Global"
             >
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.id}
-                  href={item.href}
+                  to={item.href}
                   className={classNames(
                     item.current
                       ? "bg-amber-100 text-amber-900"
@@ -164,7 +164,7 @@ function Header() {
                   aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>

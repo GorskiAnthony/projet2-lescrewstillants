@@ -2,6 +2,7 @@ import Home from "@pages/Home";
 import { Routes, Route } from "react-router-dom";
 import InfoMeal from "@pages/InfoMeal";
 import Layout from "@pages/Layout";
+import FavMeal from "@pages/FavMeal";
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:id" element={<InfoMeal />} />
+        <Route path="/favorites" element={<FavMeal />} />
+        <Route path="*" element={<h1>404</h1>} />
       </Routes>
     </Layout>
   );
