@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import {
   Bars3Icon,
   XMarkIcon,
@@ -34,12 +33,6 @@ const navigation = [
     href: "#",
     current: false,
   },
-  {
-    id: 3,
-    name: <ArrowPathIcon className="h-6 w-6" aria-hidden="true" />,
-    href: "#",
-    current: false,
-  },
 ];
 const userNavigation = [
   { name: "Your Profile", href: "#" },
@@ -62,7 +55,7 @@ function Header() {
                 <div className="flex flex-shrink-0 items-center">
                   <Link to="/">
                     <img
-                      className="block h-16 w-auto"
+                      className="block h-16 w-auto py-2"
                       src={logo}
                       alt="Logo de Let's do eat"
                     />
@@ -71,26 +64,7 @@ function Header() {
               </div>
               <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
                 <div className="w-full sm:max-w-xs">
-                  <form>
-                    <label htmlFor="search" className="sr-only">
-                      Search
-                    </label>
-                    <div className="relative">
-                      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                        <MagnifyingGlassIcon
-                          className="h-5 w-5 text-amber-400"
-                          aria-hidden="true"
-                        />
-                      </div>
-                      <input
-                        id="search"
-                        name="search"
-                        className="block w-full rounded-md border border-amber-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-amber-500 focus:border-amber-500 focus:text-amber-900 focus:placeholder-amber-400 focus:outline-none focus:ring-1 focus:ring-amber-500 sm:text-sm"
-                        placeholder="Search"
-                        type="search"
-                      />
-                    </div>
-                  </form>
+                  <Filter />
                 </div>
               </div>
               <div className="relative z-10 flex items-center lg:hidden">
@@ -166,9 +140,14 @@ function Header() {
                   {item.name}
                 </Link>
               ))}
+              <a
+                href="/random"
+                className="text-amber-900 hover:bg-amber-50 hover:text-amber-900 rounded-md py-2 px-3 inline-flex items-center text-sm font-medium"
+              >
+                <ArrowPathIcon className="h-6 w-6" aria-hidden="true" />
+              </a>
             </nav>
           </div>
-          <Filter />
 
           <Disclosure.Panel as="nav" className="lg:hidden" aria-label="Global">
             <div className="flex space-y-1 px-2 pt-2 pb-3">

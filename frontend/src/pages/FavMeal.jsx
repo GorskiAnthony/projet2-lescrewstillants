@@ -13,7 +13,11 @@ function FavMeal() {
 
   return (
     <div>
-      <h1>Favorite Meals</h1>
+      <h2 className="sm:text-2xl text-xl font-medium title-font mb-2 text-gray-900">
+        You're Favorite Meals
+      </h2>
+      <div className="h-1 w-20 bg-amber-500 rounded" />
+
       <ul className="grid grid-cols-1 gap-1 md:gap-3 md:grid-cols-4 my-16">
         {isLoading ? (
           <p>Loading...</p>
