@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import Card from "@components/Card";
-
 import { MealsContext } from "@contexts/MealsContext";
 
 function Home() {
